@@ -1,6 +1,6 @@
 import React from "react";
 import DataTestFormUnU from "../components/DataTestFormUnU";
-import DataTestList from "../components/DataTestList";
+import DataTestListUnU from "../components/DataTestListUnU";
 import useDataUNU from "../hooks/useDataUnu";
  
 const unu = () => {
@@ -82,7 +82,7 @@ const unu = () => {
             message={message}
           />
         ) : (
-          <DataTestList
+          <DataTestListUnU
             dataTest={dataTest}
             loading={loading}
             error={error}
