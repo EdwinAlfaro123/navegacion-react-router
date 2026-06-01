@@ -74,7 +74,7 @@ const unu = () => {
             cantante={cantante}
             setCantante={setCantante}
             nacionalidad={nacionalidad}
-            SetNacionalidad={setNacionalidad}
+            setNacionalidad={setNacionalidad}
             onSubmit={handleSubmit}
             onCancel={() => setActiveTab("list")}
             submitting={submitting}
