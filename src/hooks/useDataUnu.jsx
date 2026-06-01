@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
  
-const API_URL = "https://retoolapi.dev/1osLfi/dataTest";
+const API_URL = "https://retoolapi.dev/f1D0Zs/dataGrupo2A";
  
-const useDataTest = () => {
+const useDataTestUNU = () => {
   const [activeTab, setActiveTab] = useState("list");
   const [dataTest, setDataTest] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,9 +11,10 @@ const useDataTest = () => {
   const [message, setMessage] = useState("");
  
   const [id, setId] = useState("");
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
- 
+  const [cancion, setCancion] = useState("");
+  const [cantante, setCantante] = useState("");
+  const [nacionalidad, setNacionalidad] = useState("")
+
   // Loads the records from the API and updates the list in state.
   const fetchDataTest = async () => {
     try {
@@ -42,8 +43,9 @@ const useDataTest = () => {
   // Clears the form fields and removes the current record id.
   const resetForm = () => {
     setId("");
-    setName("");
-    setAge("");
+    setCancion("");
+    setCantante("");
+    setNacionalidad("")
   };
  
   // Opens the form in create mode with empty values.
@@ -56,8 +58,9 @@ const useDataTest = () => {
   // Loads the selected record into the form so it can be edited.
   const handleEdit = (item) => {
     setId(item.id);
-    setName(item.name ?? "");
-    setAge(item.age ?? "");
+    setCancion(item.cancion ?? "");
+    setCantante(item.cantante ?? "");
+    setNacionalidad(item.nacionalidad)
     setMessage("");
     setActiveTab("form");
   };
@@ -65,18 +68,16 @@ const useDataTest = () => {
   // Submits the form to create a new record or update an existing one.
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const trimmedName = name.trim();
-    const numericAge = Number(age);
+    const trimmedCancion = cancion.trim();
+    const trimmedCantante = cantante.trim()
+    const trimmedNacionalidad = nacionalidad.trim()
+    
  
-    if (!trimmedName) {
+    if (!trimmedCancion || !trimmedCantante || !trimmedNacionalidad) {
       setError("El nombre es obligatorio");
       return;
     }
- 
-    if (!age || Number.isNaN(numericAge) || numericAge < 0) {
-      setError("La edad debe ser un numero valido");
-      return;
-    }
+
  
     try {
       setSubmitting(true);
@@ -84,8 +85,9 @@ const useDataTest = () => {
       setMessage("");
  
       const payload = {
-        name: trimmedName,
-        age: numericAge,
+        cancion: trimmedCancion,
+        cantante: trimmedCantante,
+        nacionalidad: trimmedNacionalidad
       };
  
       const response = await fetch(id ? `${API_URL}/${id}` : API_URL, {
@@ -159,10 +161,12 @@ const useDataTest = () => {
     error,
     message,
     id,
-    name,
-    setName,
-    age,
-    setAge,
+    cancion,
+    setCancion,
+    cantante,
+    setCantante,
+    nacionalidad,
+    setNacionalidad,
     fetchDataTest,
     openCreateForm,
     handleEdit,
@@ -171,4 +175,5 @@ const useDataTest = () => {
   };
 };
  
-export default useDataTest;
+export default useDataTestUNU;
+ 
