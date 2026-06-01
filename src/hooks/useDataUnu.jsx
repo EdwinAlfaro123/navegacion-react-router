@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
  
 const API_URL = "https://retoolapi.dev/f1D0Zs/dataGrupo2A";
  
-const useDataTestUNU = () => {
+const useDataUNU = () => {
   const [activeTab, setActiveTab] = useState("list");
   const [dataTest, setDataTest] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -60,7 +60,7 @@ const useDataTestUNU = () => {
     setId(item.id);
     setCancion(item.cancion ?? "");
     setCantante(item.cantante ?? "");
-    setNacionalidad(item.nacionalidad)
+    setNacionalidad(item.nacionalidad ?? "")
     setMessage("");
     setActiveTab("form");
   };
@@ -175,5 +175,5 @@ const useDataTestUNU = () => {
   };
 };
  
-export default useDataTestUNU;
+export default useDataUNU;
  

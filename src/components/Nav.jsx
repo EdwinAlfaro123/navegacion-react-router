@@ -21,6 +21,11 @@ const Nav = () => {
                             Contact
                         </a>
                     </li>
+                    <li>
+                        <a href="/unu" className="hover:text-gray-200">
+                            UnU
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>
